@@ -1,5 +1,7 @@
 version: "3.9"
 
+# NOTE (OCTOBER 14, 2025): At this time, my Synology setup has not been updated to UDMS 2025/Deployrr standards. It still follows my old way of doing things. 
+
 ########################### ANAND'S ENVIRONMENT
 
 # Here are my 5 Docker Hosts:
