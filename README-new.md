@@ -12,17 +12,11 @@
 
 This repository contains my **actual production Docker setups** that power my homelab infrastructure. Unlike theoretical guides, these are real-world configurations that I use daily.
 
-### ✨ Key Features
-- **Real-world configurations** based on [Deployrr](https://www.simplehomelab.com/deployrr/) and [Ultimate Docker Media Server](https://www.simplehomelab.com/ultimate-docker-media-server-udms-01/) series
-- **150+ Docker applications** ready to deploy
-- **Multi-host architecture** spanning home servers, cloud VPS, and NAS
-- **Production-tested** setups with security and performance optimizations
-- **Extensive documentation** and video tutorials
+My setup is based on [Deployrr](https://www.simplehomelab.com/deployrr/) and [Ultimate Docker Media Server](https://www.simplehomelab.com/ultimate-docker-media-server-udms-01/) series. 
 
 ### 🎯 Repository Purpose
 1. **Share actual setups** - Real configurations I use in production
 2. **Extend Deployrr capabilities** - Examples beyond standard Deployrr templates
-3. **Provide advanced configurations** - Complex setups not covered in basic guides
 
 ---
 
@@ -30,10 +24,9 @@ This repository contains my **actual production Docker setups** that power my ho
 
 I believe in **simple, energy-efficient homelab** design that maximizes performance while minimizing complexity.
 
-### 🏠 Home Network Architecture
+### 🏠 Networking Architecture
 - **OPNsense** firewall running on Proxmox VM
 - **Tailscale** mesh networking connecting all hosts
-- **Multi-tier deployment** across different hardware platforms
 
 ### 📊 Hardware Specifications
 
@@ -47,49 +40,47 @@ I believe in **simple, energy-efficient homelab** design that maximizes performa
 
 ## 🐳 Docker Hosts
 
-All Docker configurations are organized by host with clear naming conventions:
+All Docker configurations are organized by host with clear naming conventions. I pool them together and push them to this repository. 
 
-### 🏠 Home Server (`hs-*`)
+### 🏠 Home Server (prefix/suffix: `hs`)
 ```yaml
 Platform: Ubuntu 24.04 LXC on Proxmox
 Resources: 8 vCPU, 8GB RAM, 4GB Swap
 Storage: 64GB OS + 32GB Docker data
-Purpose: Core homelab services
+Purpose: Core homelab services and support my tinkering habits
 ```
 
-### 🎬 Media Database Server (`mds-*`)
+### 🎬 Media Database Server (prefix/suffix: `mds`)
 ```yaml
 Platform: Ubuntu 24.04 LXC on Proxmox  
 Resources: 12 vCPU, 12GB RAM, 4GB Swap
 Storage: 64GB OS + 72GB Docker data
-Purpose: Media management & processing
+Purpose: Media servers and databases - Separate so they are not affected by my tinkering
 ```
 
-### 🌐 Web Server (`ws-arm-*`)
+### 🌐 Web Server (prefix/suffix: `ws-arm`)
 ```yaml
 Platform: Ubuntu 24.04 ARM64 on Oracle Cloud
 Resources: 4 vCPU, 24GB RAM
 Storage: 100GB OS + 100GB data
-Purpose: Web applications & ARM workloads
+Purpose: Web Server (Nginx, PHP-FPM 8, WordPress, etc.), n8n, Flowise, and more
 ```
 
-### 💾 Synology NAS (`ds918-*`)
+### 💾 Synology NAS (prefix/suffix: `ds918`)
 ```yaml
-Platform: DSM 7.2
-Resources: 8GB RAM, 144TB storage (SHR2)
-Purpose: Storage & legacy applications
+Platform: DSM 7.X
+Resources: 8GB RAM, DX517 Expansion Unit, Volume1 - 4x18TB SHR2, Volume 2 - 4x18TB SHR2
+Purpose: I use this only for tinkering with Docker
 ```
 
 ### 📁 Archives
-Legacy configurations in `_archives_` folder - not actively maintained but useful as reference.
+Legacy configurations in `archives` folder - not actively maintained but useful as reference.
 
 ---
 
 ## 📚 Learning Resources
 
 ### 🎥 Ultimate Docker Media Server Series
-
-**Complete step-by-step guide** to building a professional Docker homelab:
 
 #### 🚀 Getting Started
 1. [Introduction and Overview](https://www.simplehomelab.com/udms-01-introduction-and-overview/)
@@ -152,8 +143,9 @@ Legacy configurations in `_archives_` folder - not actively maintained but usefu
 
 **150+ Docker applications** ready for deployment, sourced from the [Deployrr Repository](https://github.com/SimpleHomelab/Deployrr/blob/main/APPS.md):
 
-Adminer, Airsonic-Advanced, Authentik, Audiobookshelf, Authelia, Baikal, Bazarr, Beets, Bookstack, cAdvisor, Calibre, Calibre-Web, Change Detection, Chromium, Cleanuparr, Cloud Commander, Cloudflare Tunnel, CrowdSec, CrowdSec Firewall Bouncer, CyberChef, Dashy, DDNS Updater, DeUnhealth, DigiKam, Dockwatch, Docker Garbage Collection, DokuWiki, Double Commander, Dozzle, Dozzle Agent, DweebUI, Emby, ESPHome, FileZilla, Flame, Flaresolverr, Flowise, FreshRSS, Funkwhale, GameVault, Glances, Gluetun, Gonic, Gotenberg, GPTWOL, Grafana, Grocy, Guacamole, Heimdall, Homarr, Home Assistant Core, Homebridge, Homer, Homepage, Huntarr, Immich, InfluxDB, IT-Tools, Jackett, Jellyfin, Jellyseerr, Kasm, Kavita, Kometa, Komga, Lidarr, Lollypop, Maintainerr, MariaDB, Mosquitto, MQTTX Web, Mylar3, n8n, Navidrome, Netdata, Nextcloud, Node Exporter, Node-RED, Notifiarr, OAuth, Ollama, Ombi, OpenHands, Open-WebUI, Organizr, Overseerr, Paperless-AI, Paperless-NGX, PdfDing, PgAdmin, phpMyAdmin, Pi-hole, Piwigo, Plex, Portainer, PostgreSQL, Privatebin, Prometheus, Prowlarr, qBittorrent, qBittorrent with VPN, Qdrant, Radarr, Redis, Redis Commander, Remmina, Resilio Sync, SABnzbd, Scrutiny, SearXNG, ShellInABox, Smokeping, Socket Proxy, Sonarr, Speedtest-Tracker, SSHwifty, Stirling PDF, Tailscale, Tautulli, The Lounge, Theme Park, Tika, TinyAuth, Traefik, Traefik Access Logs, Traefik Bouncer, Traefik Certs Dumper, Traefik Error Logs, Transmission, Trilium Next, Uptime-Kuma, Vaultwarden, Vikunja, Visual Studio Code Server, Wallos, Watchtower, Weaviate, WG-Easy, What's Up Docker (WUD), WikiDocs, Wireguard, and ZeroTier
+Adminer, Airsonic-Advanced, Authentik, Audiobookshelf, Authelia, Baikal, Bazarr, Beets, Bookstack, cAdvisor, Calibre, Calibre-Web, Change Detection, Chromium, Cleanuparr, Cloud Commander, Cloudflare Tunnel, CrowdSec, CrowdSec Firewall Bouncer, CyberChef, Dashy, DDNS Updater, DeUnhealth, DigiKam, Dockwatch, Docker Garbage Collection, DokuWiki, Double Commander, Dozzle, Dozzle Agent, DweebUI, Emby, ESPHome, FileZilla, Flame, Flaresolverr, Flowise, FreshRSS, Funkwhale, GameVault, Glances, Gluetun, Gonic, Gotenberg, GPTWOL, Grafana, Grocy, Guacamole, Heimdall, Homarr, Home Assistant Core, Homebridge, Homer, Homepage, Huntarr, Immich, InfluxDB, IT-Tools, Jackett, Jellyfin, Jellyseerr, Kasm, Kavita, Kometa, Komga, Lidarr, Lollypop, Maintainerr, MariaDB, Mosquitto, MQTTX Web, Mylar3, n8n, Navidrome, Netdata, Nextcloud, Node Exporter, Node-RED, Notifiarr, OAuth, Ollama, Ombi, OpenHands, Open-WebUI, Organizr, Overseerr, Paperless-AI, Paperless-NGX, PdfDing, PgAdmin, phpMyAdmin, Pi-hole, Piwigo, Plex, Portainer, PostgreSQL, Privatebin, Prometheus, Prowlarr, qBittorrent, qBittorrent with VPN, Qdrant, Radarr, Redis, Redis Commander, Remmina, Resilio Sync, SABnzbd, Scrutiny, SearXNG, ShellInABox, Smokeping, Socket Proxy, Sonarr, Speedtest-Tracker, SSHwifty, Stirling PDF, Tailscale, Tautulli, The Lounge, Theme Park, Tika, TinyAuth, Traefik, Traefik Access Logs, Traefik Bouncer, Traefik Certs Dumper, Traefik Error Logs, Transmission, Trilium Next, Uptime-Kuma, Vaultwarden, Vikunja, Visual Studio Code Server, Wallos, Watchtower, Weaviate, WG-Easy, What's Up Docker (WUD), WikiDocs, Wireguard, and ZeroTier.
 
+**Custom Apps** not supported by Deployrr yet (e.g. Nginx, PHP, etc.)
 ---
 
 ## ⚡ Quick Start Commands
@@ -193,14 +185,3 @@ I use **Bash Aliases** installed via Deployrr for streamlined Docker management:
 <img src="https://www.simplehomelab.com/images/2022/05/join-discord-300x75.png" alt="Join Discord" width="300" height="75" />
 </a>
 </div>
-
----
-
-## 📝 License & Attribution
-
-This repository contains real-world Docker configurations based on:
-- [Deployrr](https://www.simplehomelab.com/deployrr/) automation platform
-- [Ultimate Docker Media Server](https://www.simplehomelab.com/ultimate-docker-media-server-udms-01/) series
-- [SimpleHomelab.com](https://www.simplehomelab.com/) community resources
-
-**Created by**: Anand from [SimpleHomelab.com](https://www.simplehomelab.com/) (formerly SmartHomeBeginner.com)
