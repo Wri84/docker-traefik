@@ -1,140 +1,188 @@
-# Description
+# 🐳 Ultimate Docker-Traefik Repo by Anand
 
-This repo contains my (Anand from [SimpleHomelab.com](https://www.simplehomelab.com/); previously SmartHomeBeginner.com) actual Docker-based server setups. 
+> **Real-world Docker configurations** from Anand at [SimpleHomelab.com](https://www.simplehomelab.com/) (formerly SmartHomeBeginner.com)
 
-Unlike my previous setups/guides, my current setup is based on [Deployrr](https://www.simplehomelab.com/deployrr/) and [Ultimate Docker Media Server](https://www.simplehomelab.com/ultimate-docker-media-server-udms-01/)(UDMS) series, based on templates available in [Deplorr repository](https://github.com/SimpleHomelab/Deployrr). 
+[![Deployrr](https://img.shields.io/badge/Powered%20by-Deployrr-blue?style=flat-square)](https://www.simplehomelab.com/deployrr/)
+[![UDMS Series](https://img.shields.io/badge/UDMS-Series-green?style=flat-square)](https://www.simplehomelab.com/ultimate-docker-media-server-udms-01/)
+[![150+ Apps](https://img.shields.io/badge/Apps-150%2B-orange?style=flat-square)](#-featured-applications)
 
-The purpose of this repository is to 1) share my actual setup and 2) provide examples or ways too do more than what is done by Deployrr or discussed in UDMS series. 
+---
 
-ADD SOCIAL MEDIA PROFILES
+## 🎯 What This Repository Offers
 
-## My Hardware
+This repository contains my **actual production Docker setups** that power my homelab infrastructure. Unlike theoretical guides, these are real-world configurations that I use daily.
 
-I believe in keeping my homelab simple and energy efficient.
+My setup is based on [Deployrr](https://www.simplehomelab.com/deployrr/) and [Ultimate Docker Media Server](https://www.simplehomelab.com/ultimate-docker-media-server-udms-01/) series. 
 
-<ul>
-<li>TopTon V700 Mini PC with Intel 13th Gen “Raptor Lake” i7-13800H, 64 GB RAM, 2x2TB NVMe M.2 ZFS Raid Mirror for Proxmox Virtual Environment and 4 TB SATA III SSD storage.</li>
-<li>Synology DS918+ with DX517 Expansion Unit and 8 GB RAM used mainly for storage.</li>
-<li>Oracle Ampere A1 ARM based VPS with 4 vCPU and 24 GB RAM for Web Server.</li>
-<li>
+### 🎯 Repository Purpose
+1. **Share actual setups** - Real configurations I use in production
+2. **Extend Deployrr capabilities** - Examples beyond standard Deployrr templates
 
-My home network is powered by OPNsense running as a Proxmox VM. All hosts are networked using Tailscale. 
+---
 
-## My Docker Hosts
+## 🖥️ Infrastructure Overview
 
-Docker setup files (e.g. Docker Compose) from the following Docker Hosts are pooled and pushed to this repo. 
+I believe in **simple, energy-efficient homelab** design that maximizes performance while minimizing complexity.
 
-### Home Server
-<ul>
-<li>Ubuntu 24.04 on Proxmox Unprivileged LXC.</li>
-<li>8 vCPU, 8 GB RAM, 4 GB Swap, 64 GB OS disk, 32 GB disk for Docker data.</li>
-<li>Built with Deployrr and some custom apps.</li>
-<li>Any file/folder in this repo belonging to my home server will have the prefix/suffix of <strong>hs</strong> in the name.</li>
-</ul>
+### 🏠 Networking Architecture
+- **OPNsense** firewall running on Proxmox VM
+- **Tailscale** mesh networking connecting all hosts
 
-### Media Database Server
-<ul>
-<li>Ubuntu 24.04 on Proxmox Unprivileged LXC.</li>
-<li>12 vCPU, 12 GB RAM, 4 GB Swap, 64 GB OS disk, 72 GB disk for Docker data.</li>
-<li>Built with Deployrr and some custom apps.</li>
-<li>Any file/folder in this repo belonging to my media database server will have the prefix/suffix of <strong>mds</strong> in the name.</li>
-</ul>
+### 📊 Hardware Specifications
 
-### Web Server
-<ul>
-<li>Ubuntu 24.04 arm64 on Oracle Ampere A1.</li>
-<li>4 vCPU, 24 GB RAM, 100 GB OS disk, and 100 GB storage disk.</li>
-<li>Built with Deployrr and some custom apps.</li>
-<li>Any file/folder in this repo belonging to my web server will have the prefix/suffix of <strong>ws-arm</strong> in the name.</li>
-</ul>
+| Component | Specifications | Purpose |
+|-----------|---------------|---------|
+| **TopTon V700 Mini PC** | Intel i7-13800H, 64GB RAM, 2×2TB NVMe ZFS RAID1, 4TB SATA SSD | Primary Proxmox host |
+| **Synology DS918+** | DX517 Expansion, 8GB RAM, 4×18TB SHR2 (×2 volumes) | Storage & legacy apps |
+| **Oracle Ampere A1** | 4 vCPU ARM64, 24GB RAM, 200GB storage | Web server & ARM workloads |
 
-### Synology DS918+ and DX517 Expansion Unit
-<ul>
-<li>DSM 7.2.</li>
-<li>8 GB RAM, Volume 1 on main unit: 4x18 TB in SHR2, Volume 2 on Expansion Unit: 4x18 TB in SHR2.</li>
-<li>At this point this setup still follows the standards from my older guides.</li>
-<li>Any file/folder in this repo belonging to my Synology setup will have the prefix/suffix of <strong>ds918</strong> in the name.</li>
-</ul>
+---
 
-### Archives
-Files and folders inside _archives_ are not actively maintained. But they may still provide a good starting point. 
+## 🐳 Docker Hosts
 
-# Guides and Videos
+All Docker configurations are organized by host with clear naming conventions. I pool them together and push them to this repository. 
 
-## Ultimate Docker Media Server Series:
+### 🏠 Home Server (prefix/suffix: `hs`)
+```yaml
+Platform: Ubuntu 24.04 LXC on Proxmox
+Resources: 8 vCPU, 8GB RAM, 4GB Swap
+Storage: 64GB OS + 32GB Docker data
+Purpose: Core homelab services and support my tinkering habits
+```
 
-<ol>
-    <li><a href="https://www.simplehomelab.com/udms-01-introduction-and-overview/">Introduction and Overview</a></li>
-    <li><a href="https://www.simplehomelab.com/udms-02-hardware-nas-minipc-vps/">Hardware: NAS, Mini PC, or VPS (FREE!). Which one?</a></li>
-    <li><a href="https://www.simplehomelab.com/udms-03-best-home-server-os/">Best Home Server OS, Proxmox LXC vs VM</a></li>
-    <li><a href="https://www.simplehomelab.com/udms-04-install-proxmox-on-mini-pc/">Install Proxmox on Mini PC with ZFS RAID1 Mirror + 3 Tweaks</a> [<a href="https://youtu.be/2nIPY7D-UA0" target="_blank">Video</a>]</li>
-    <li><a href="https://www.simplehomelab.com/udms-05-installing-ubuntu-on-proxmox/">Installing and Prepping Ubuntu/Debian</a> [<a href="https://youtu.be/-ZSQdJ62r-Q" target="_blank">Video</a>]</li>
-    <li>Mounting Remote Folders using Rclone [<a href="https://youtu.be/D-XS0biLP14" target="_blank">Video</a>]</li>
-    <li>Mounting Remote Folders using SMB/CIFS (Coming Soon)</li>
-    <li>Mounting Remote Folders using NFS (Coming Soon)</li>
-    <li>Binding Mounting on Proxmox Unpriviled LXC (Coming Soon)</li>
-    <li><a href="https://www.simplehomelab.com/udms-10-proxmox-lxc-network-device-passthrough/">Proxmox Unprivileged LXC Network Node Passthrough</a> [<a href="https://youtu.be/r0nGMFs5pCY" target="_blank">Video</a>]</li>
-    <li><a href="https://www.simplehomelab.com/udms-11-gpu-passthrough-on-proxmox-lxc/">Proxmox Unprivileged LXC iGPU Node Passthrough</a> [<a href="https://youtu.be/kvnJYyyLoIk" target="_blank">Video</a>]</li>
-    <li><a href="https://www.simplehomelab.com/udms-12-install-docker-and-docker-compose/">Installing Docker and Docker Compose on Ubuntu/Debian</a></li>
-    <li><a href="https://www.simplehomelab.com/udms-13-docker-and-docker-compose-commands/">Essential Docker Commands & Time-Saving Aliases</a></li>
-    <li><a href="https://www.simplehomelab.com/udms-14-docker-media-server/">Kickass Docker Media Server with 150+ Apps</a> [<a href="https://youtu.be/THuLgGwq0vg" target="_blank">Video</a>]</li>
-    <li>Best Docker Containers for Homelab (Coming Soon)</li>
-    <li><a href="https://www.simplehomelab.com/udms-part-16-tailscale-homelab-remote-access/">Exposing Apps to the Internet: Tailscale</a> [<a href="https://youtu.be/M6GMp4FJrB8" target="_blank">Video</a>]</li>
-    <li>Exposing Apps to the Internet: Nginx Proxy Manager (Coming Soon)</li>
-    <li><a href="https://www.simplehomelab.com/udms-18-traefik-docker-compose-guide/">Exposing Apps to the Internet: Traefik Reverse Proxy</a> [<a href="https://www.youtube.com/playlist?list=PL1Hno7tIbSWUGrZSqeB9aCsdAuoeVwvgh" target="_blank">Video 1</a>]</li>
-    <li><a href="https://www.simplehomelab.com/udms-19-authelia-docker-compose/">Authentication for Docker Apps - Authelia</a> [<a href="https://youtu.be/UIq8PLZHBtk" target="_blank">Video</a>]</li>
-    <li>Authentication for Docker Apps - Google OAuth 2 [<a href="https://youtu.be/SCKALXprTQE" target="_blank">Video</a>]</li>
-    <li>Authentication for Docker Apps - Authentik [<a href="https://youtu.be/GoUmJAe1MKc" target="_blank">Video</a>]</li>
-    <li><a href="https://www.simplehomelab.com/udms-22-crowdsec-docker-compose/">CrowdSec Docker Compose – Bulletproof IPS for Homelabs</a></li>
-    <li><a href="https://www.simplehomelab.com/udms-23-crowdsec-cloudflare-bouncer/">Setting up Crowdsec Cloudflare Bouncer</a></li>
-    <li><a href="https://www.simplehomelab.com/udms-24-crowdsec-traefik-bouncer/">Setting up Crowdsec Traefik Bouncer</a></li>
-    <li>Advanced Topics: Traefik Plugins (Coming Soon)</li>
-    <li>Advanced Topics: Traefik Multiple Domains (Coming Soon)</li>
-    <li>Advanced Topics: Traefik Domain Passthrough (Coming Soon)</li>
-    <li>Advanced Topics: <a href="https://www.simplehomelab.com/udms-28-traefik-auth-bypass/">Traefik Conditional Auth Bypass</a></li>
-    <li>Advanced Topics: <a href="https://www.simplehomelab.com/udms-29-crowdsec-multiserver/">CrowdSec Multiserver Setup</a></li>
-    <li>Closing Thoughts and Options to Level Up (Coming Soon)</li>
-</ol>
+### 🎬 Media Database Server (prefix/suffix: `mds`)
+```yaml
+Platform: Ubuntu 24.04 LXC on Proxmox  
+Resources: 12 vCPU, 12GB RAM, 4GB Swap
+Storage: 64GB OS + 72GB Docker data
+Purpose: Media servers and databases - Separate so they are not affected by my tinkering
+```
 
-## Synology:
-- [Ultimate Synology NAS Docker Compose Media Server 2022](https://www.simplehomelab.com/synology-nas-docker-media-server-2022/) - UPDATE PENDING
+### 🌐 Web Server (prefix/suffix: `ws-arm`)
+```yaml
+Platform: Ubuntu 24.04 ARM64 on Oracle Cloud
+Resources: 4 vCPU, 24GB RAM
+Storage: 100GB OS + 100GB data
+Purpose: Web Server (Nginx, PHP-FPM 8, WordPress, etc.), n8n, Flowise, and more
+```
 
-## Web Server:
-- [WordPress on Docker with Nginx, Traefik, LE SSL, Security, and Speed](https://www.simplehomelab.com/wordpress-on-docker-traefik/) - UPDATE PENDING
+### 💾 Synology NAS (prefix/suffix: `ds918`)
+```yaml
+Platform: DSM 7.X
+Resources: 8GB RAM, DX517 Expansion Unit, Volume1 - 4x18TB SHR2, Volume 2 - 4x18TB SHR2
+Purpose: I use this only for tinkering with Docker
+```
 
-## Automate the Process:
-- [Deployrr: Automate Docker Compose based Homelab Setup](https://www.simplehomelab.com/deployrr/) [VIDEO](https://youtu.be/OnoKy73b-w4)
+### 📁 Archives
+Legacy configurations in `archives` folder - not actively maintained but useful as reference.
 
-# Apps in this Repo
+---
 
-Majority of the apps in my setup come directly from the [Deployrr Repository](https://github.com/SimpleHomelab/Deployrr/blob/main/APPS.md), which supports nearly 150 apps as listed below. I do not use all of them in setup but do have some that are not installed natively by Deployrr. 
+## 📚 Learning Resources
 
-Adminer, Airsonic-Advanced, Authentik, Audiobookshelf, Authelia, Baikal, Bazarr, Beets, Bookstack, cAdvisor, Calibre, Calibre-Web, Change Detection, Chromium, Cleanuparr, Cloud Commander, Cloudflare Tunnel, CrowdSec, CrowdSec Firewall Bouncer, CyberChef, Dashy, DDNS Updater, DeUnhealth, DigiKam, Dockwatch, Docker Garbage Collection, DokuWiki, Double Commander, Dozzle, Dozzle Agent, DweebUI, Emby, ESPHome, FileZilla, Flame, Flaresolverr, Flowise, FreshRSS, Funkwhale, GameVault, Glances, Gluetun, Gonic, Gotenberg, GPTWOL, Grafana, Grocy, Guacamole, Heimdall, Homarr, Home Assistant Core, Homebridge, Homer, Homepage, Huntarr, Immich, InfluxDB, IT-Tools, Jackett, Jellyfin, Jellyseerr, Kasm, Kavita, Kometa, Komga, Lidarr, Lollypop, Maintainerr, MariaDB, Mosquitto, MQTTX Web, Mylar3, n8n, Navidrome, Netdata, Nextcloud, Node Exporter, Node-RED, Notifiarr, OAuth, Ollama, Ombi, OpenHands, Open-WebUI, Organizr, Overseerr, Paperless-AI, Paperless-NGX, PdfDing, PgAdmin, phpMyAdmin, Pi-hole, Piwigo, Plex, Portainer, PostgreSQL, Privatebin, Prometheus, Prowlarr, qBittorrent, qBittorrent with VPN, Qdrant, Radarr, Redis, Redis Commander, Remmina, Resilio Sync, SABnzbd, Scrutiny, SearXNG, ShellInABox, Smokeping, Socket Proxy, Sonarr, Speedtest-Tracker, SSHwifty, Stirling PDF, Tailscale, Tautulli, The Lounge, Theme Park, Tika, TinyAuth, Traefik, Traefik Access Logs, Traefik Bouncer, Traefik Certs Dumper, Traefik Error Logs, Transmission, Trilium Next, Uptime-Kuma, Vaultwarden, Vikunja, Visual Studio Code Server, Wallos, Watchtower, Weaviate, WG-Easy, What's Up Docker (WUD), WikiDocs, Wireguard, and ZeroTier
+### 🎥 Ultimate Docker Media Server Guides and Videos
 
-## Bash Aliases 
+#### 🚀 Getting Started
+1. [Introduction and Overview](https://www.simplehomelab.com/udms-01-introduction-and-overview/)
+2. [Hardware: NAS, Mini PC, or VPS (FREE!). Which one?](https://www.simplehomelab.com/udms-02-hardware-nas-minipc-vps/)
+3. [Best Home Server OS, Proxmox LXC vs VM](https://www.simplehomelab.com/udms-03-best-home-server-os/)
 
-I use Bash Aliases installed via Deployrr to simplify managing my Docker stacks. But you may also install it manually using my UDMS guide: [Essential Docker Commands & Time-Saving Aliases](https://www.simplehomelab.com/udms-13-docker-and-docker-compose-commands/).
+#### ⚙️ Infrastructure Setup
+4. [Install Proxmox on Mini PC with ZFS RAID1 Mirror + 3 Tweaks](https://www.simplehomelab.com/udms-04-install-proxmox-on-mini-pc/) [📹](https://youtu.be/2nIPY7D-UA0)
+5. [Installing and Prepping Ubuntu/Debian](https://www.simplehomelab.com/udms-05-installing-ubuntu-on-proxmox/) [📹](https://youtu.be/-ZSQdJ62r-Q)
+6. [Mounting Remote Folders using Rclone](https://youtu.be/D-XS0biLP14) [📹]
+7. Mounting Remote Folders using SMB/CIFS *(Coming Soon)*
+8. Mounting Remote Folders using NFS *(Coming Soon)*
+9. Binding Mounting on Proxmox Unprivileged LXC *(Coming Soon)*
 
-Here are some example alias commands:
+#### 🔧 Advanced Configuration
+10. [Proxmox Unprivileged LXC Network Node Passthrough](https://www.simplehomelab.com/udms-10-proxmox-lxc-network-device-passthrough/) [📹](https://youtu.be/r0nGMFs5pCY)
+11. [Proxmox Unprivileged LXC iGPU Node Passthrough](https://www.simplehomelab.com/udms-11-gpu-passthrough-on-proxmox-lxc/) [📹](https://youtu.be/kvnJYyyLoIk)
 
-- `dcup` - Start Docker stack
-- `dcdown` - Stop Docker stack
-- `dcrec` - Start or recreate a specific service or the full stack
-- `dcstop` - Stop a specific service or the full stack
-- `dcrestart` - Restart a specific service or the full stack
-- `dclogs` - See real-time logs for the corresponding stack or service
-- `dcpull` - Pull new images for the corresponding stack or service
+#### 🐳 Docker Fundamentals
+12. [Installing Docker and Docker Compose on Ubuntu/Debian](https://www.simplehomelab.com/udms-12-install-docker-and-docker-compose/)
+13. [Essential Docker Commands & Time-Saving Aliases](https://www.simplehomelab.com/udms-13-docker-and-docker-compose-commands/)
+14. [Kickass Docker Media Server with 150+ Apps](https://www.simplehomelab.com/udms-14-docker-media-server/) [📹](https://youtu.be/THuLgGwq0vg)
+15. Best Docker Containers for Homelab *(Coming Soon)*
 
-A full list of supported Bash Aliases are described in Deployrr Docs: [Bash Aliases in Deployrr](https://docs.deployrr.app/operating-system/bash-aliases-explained).
+#### 🌐 Remote Access & Security
+16. [Exposing Apps to the Internet: Tailscale](https://www.simplehomelab.com/udms-part-16-tailscale-homelab-remote-access/) [📹](https://youtu.be/M6GMp4FJrB8)
+17. Exposing Apps to the Internet: Nginx Proxy Manager *(Coming Soon)*
+18. [Exposing Apps to the Internet: Traefik Reverse Proxy](https://www.simplehomelab.com/udms-18-traefik-docker-compose-guide/) [📹](https://www.youtube.com/playlist?list=PL1Hno7tIbSWUGrZSqeB9aCsdAuoeVwvgh)
 
-# Support My Work
+#### 🔐 Authentication & Security
+19. [Authentication for Docker Apps - Authelia](https://www.simplehomelab.com/udms-19-authelia-docker-compose/) [📹](https://youtu.be/UIq8PLZHBtk)
+20. [Authentication for Docker Apps - Google OAuth 2](https://youtu.be/SCKALXprTQE) [📹]
+21. [Authentication for Docker Apps - Authentik](https://youtu.be/GoUmJAe1MKc) [📹]
+22. [CrowdSec Docker Compose – Bulletproof IPS for Homelabs](https://www.simplehomelab.com/udms-22-crowdsec-docker-compose/)
+23. [Setting up Crowdsec Cloudflare Bouncer](https://www.simplehomelab.com/udms-23-crowdsec-cloudflare-bouncer/)
+24. [Setting up Crowdsec Traefik Bouncer](https://www.simplehomelab.com/udms-24-crowdsec-traefik-bouncer/)
 
-Documenting, writing guides, and keeping this repo update-to-date takes hundreds of hours of work. Please consider supporting my work to show your appreciation. 
+#### 🚀 Advanced Topics
+25. Advanced Topics: Traefik Plugins *(Coming Soon)*
+26. Advanced Topics: Traefik Multiple Domains *(Coming Soon)*
+27. Advanced Topics: Traefik Domain Passthrough *(Coming Soon)*
+28. Advanced Topics: [Traefik Conditional Auth Bypass](https://www.simplehomelab.com/udms-28-traefik-auth-bypass/)
+29. Advanced Topics: [CrowdSec Multiserver Setup](https://www.simplehomelab.com/udms-29-crowdsec-multiserver/)
+30. Closing Thoughts and Options to Level Up *(Coming Soon)*
 
-## Join the Geek Amry
+### 📖 Additional Guides
 
-<div style="text-align:center;margin:20px"><a href="https://www.simplehomelab.com/geek-army/join/" target="_blank" rel="nofollow noopener noreferrer"><img src="https://www.simplehomelab.com/images/2024/01/become-a-member.png" alt="" width="258" height="76" /></a></div>
+#### 🏢 Synology NAS
+- [Ultimate Synology NAS Docker Compose Media Server 2022](https://www.simplehomelab.com/synology-nas-docker-media-server-2022/) *(Update Pending)*
 
-## Join the Discord Community
+#### 🌐 Web Server
+- [WordPress on Docker with Nginx, Traefik, LE SSL, Security, and Speed](https://www.simplehomelab.com/wordpress-on-docker-traefik/) *(Update Pending)*
 
-<div style="text-align:center;margin:20px"><a href="https://www.simplehomelab.com/discord-github/" target="_blank" rel="nofollow noopener noreferrer"><img src="https://www.simplehomelab.com/images/2022/05/join-discord-300x75.png" alt="" width="300" height="75" /></a></div>
+#### 🤖 Automation
+- [Deployrr: Automate Docker Compose based Homelab Setup](https://www.simplehomelab.com/deployrr/) [📹](https://youtu.be/OnoKy73b-w4)
+
+---
+
+## 🚀 Featured Applications
+
+**150+ Docker applications** ready for deployment, sourced from the [Deployrr Repository](https://github.com/SimpleHomelab/Deployrr/blob/main/APPS.md):
+
+Adminer, Airsonic-Advanced, Authentik, Audiobookshelf, Authelia, Baikal, Bazarr, Beets, Bookstack, cAdvisor, Calibre, Calibre-Web, Change Detection, Chromium, Cleanuparr, Cloud Commander, Cloudflare Tunnel, CrowdSec, CrowdSec Firewall Bouncer, CyberChef, Dashy, DDNS Updater, DeUnhealth, DigiKam, Dockwatch, Docker Garbage Collection, DokuWiki, Double Commander, Dozzle, Dozzle Agent, DweebUI, Emby, ESPHome, FileZilla, Flame, Flaresolverr, Flowise, FreshRSS, Funkwhale, GameVault, Glances, Gluetun, Gonic, Gotenberg, GPTWOL, Grafana, Grocy, Guacamole, Heimdall, Homarr, Home Assistant Core, Homebridge, Homer, Homepage, Huntarr, Immich, InfluxDB, IT-Tools, Jackett, Jellyfin, Jellyseerr, Kasm, Kavita, Kometa, Komga, Lidarr, Lollypop, Maintainerr, MariaDB, Mosquitto, MQTTX Web, Mylar3, n8n, Navidrome, Netdata, Nextcloud, Node Exporter, Node-RED, Notifiarr, OAuth, Ollama, Ombi, OpenHands, Open-WebUI, Organizr, Overseerr, Paperless-AI, Paperless-NGX, PdfDing, PgAdmin, phpMyAdmin, Pi-hole, Piwigo, Plex, Portainer, PostgreSQL, Privatebin, Prometheus, Prowlarr, qBittorrent, qBittorrent with VPN, Qdrant, Radarr, Redis, Redis Commander, Remmina, Resilio Sync, SABnzbd, Scrutiny, SearXNG, ShellInABox, Smokeping, Socket Proxy, Sonarr, Speedtest-Tracker, SSHwifty, Stirling PDF, Tailscale, Tautulli, The Lounge, Theme Park, Tika, TinyAuth, Traefik, Traefik Access Logs, Traefik Bouncer, Traefik Certs Dumper, Traefik Error Logs, Transmission, Trilium Next, Uptime-Kuma, Vaultwarden, Vikunja, Visual Studio Code Server, Wallos, Watchtower, Weaviate, WG-Easy, What's Up Docker (WUD), WikiDocs, Wireguard, and ZeroTier.
+
+**Custom Apps** not supported by Deployrr yet (e.g. Nginx, PHP, etc.)
+
+---
+
+## ⚡ Quick Start Commands
+
+### 🎯 Essential Docker Aliases
+
+I use **Bash Aliases** installed via Deployrr for streamlined Docker management:
+
+| Command | Description |
+|---------|-------------|
+| `dcup` | Start Docker stack |
+| `dcdown` | Stop Docker stack |
+| `dcrec` | Start or recreate specific service/full stack |
+| `dcstop` | Stop specific service/full stack |
+| `dcrestart` | Restart specific service/full stack |
+| `dclogs` | View real-time logs for stack/service |
+| `dcpull` | Pull new images for stack/service |
+
+> 📖 **Learn More**: [Essential Docker Commands & Time-Saving Aliases](https://www.simplehomelab.com/udms-13-docker-and-docker-compose-commands/) | [Bash Aliases in Deployrr](https://docs.deployrr.app/operating-system/bash-aliases-explained)
+
+---
+
+## 🤝 Support & Community
+
+**Documenting, writing guides, and maintaining this repository** requires hundreds of hours of dedicated work. Your support helps keep this project alive and continuously updated.
+
+### 🎖️ Join the Geek Army
+<div style="text-align:center;margin:20px">
+<a href="https://www.simplehomelab.com/geek-army/join/" target="_blank" rel="nofollow noopener noreferrer">
+<img src="https://www.simplehomelab.com/images/2024/01/become-a-member.png" alt="Join the Geek Army" width="258" height="76" />
+</a>
+</div>
+
+### 💬 Join the Discord Community
+<div style="text-align:center;margin:20px">
+<a href="https://www.simplehomelab.com/discord-github/" target="_blank" rel="nofollow noopener noreferrer">
+<img src="https://www.simplehomelab.com/images/2022/05/join-discord-300x75.png" alt="Join Discord" width="300" height="75" />
+</a>
+</div>
