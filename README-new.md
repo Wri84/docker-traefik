@@ -152,32 +152,7 @@ Legacy configurations in `_archives_` folder - not actively maintained but usefu
 
 **150+ Docker applications** ready for deployment, sourced from the [Deployrr Repository](https://github.com/SimpleHomelab/Deployrr/blob/main/APPS.md):
 
-### 📱 Media & Entertainment
-**Adminer**, **Airsonic-Advanced**, **Audiobookshelf**, **Bazarr**, **Beets**, **Calibre**, **Calibre-Web**, **Emby**, **Funkwhale**, **GameVault**, **Immich**, **Jellyfin**, **Jellyseerr**, **Kavita**, **Kometa**, **Komga**, **Lidarr**, **Mylar3**, **Navidrome**, **Ombi**, **Overseerr**, **Plex**, **Radarr**, **Sonarr**, **Tautulli**, **Trilium Next**
-
-### 🏠 Home Automation & IoT
-**ESPHome**, **Home Assistant Core**, **Homebridge**, **Mosquitto**, **MQTTX Web**, **Node-RED**, **OpenHands**
-
-### 🔧 Development & Productivity
-**Authentik**, **Authelia**, **Bookstack**, **CyberChef**, **DokuWiki**, **Flowise**, **FreshRSS**, **Grocy**, **Guacamole**, **IT-Tools**, **Nextcloud**, **n8n**, **Ollama**, **Open-WebUI**, **Paperless-AI**, **Paperless-NGX**, **PdfDing**, **Privatebin**, **Stirling PDF**, **Visual Studio Code Server**, **Vikunja**, **WikiDocs**
-
-### 📊 Monitoring & Analytics
-**cAdvisor**, **Change Detection**, **Dockwatch**, **Dozzle**, **Dozzle Agent**, **Glances**, **Grafana**, **InfluxDB**, **Netdata**, **Node Exporter**, **Prometheus**, **Scrutiny**, **Smokeping**, **Speedtest-Tracker**, **Uptime-Kuma**, **Watchtower**, **What's Up Docker (WUD)**
-
-### 🌐 Networking & Security
-**Cloudflare Tunnel**, **CrowdSec**, **CrowdSec Firewall Bouncer**, **Gluetun**, **Pi-hole**, **Tailscale**, **Traefik**, **Traefik Access Logs**, **Traefik Bouncer**, **Traefik Certs Dumper**, **Traefik Error Logs**, **WG-Easy**, **Wireguard**, **ZeroTier**
-
-### 🎨 Dashboards & Organization
-**Dashy**, **Flame**, **Heimdall**, **Homarr**, **Homer**, **Homepage**, **Organizr**, **Theme Park**
-
-### 💾 Storage & Backup
-**Resilio Sync**, **Vaultwarden**
-
-### 🗄️ Databases & Data
-**Baikal**, **MariaDB**, **PostgreSQL**, **PgAdmin**, **phpMyAdmin**, **Qdrant**, **Redis**, **Redis Commander**, **Weaviate**
-
-### 🎯 Utilities & Tools
-**Chromium**, **Cleanuparr**, **Cloud Commander**, **DDNS Updater**, **DeUnhealth**, **DigiKam**, **Docker Garbage Collection**, **Double Commander**, **DweebUI**, **FileZilla**, **Flaresolverr**, **Gotenberg**, **GPTWOL**, **Huntarr**, **Jackett**, **Kasm**, **Lollypop**, **Maintainerr**, **Notifiarr**, **OAuth**, **Piwigo**, **Portainer**, **Prowlarr**, **qBittorrent**, **qBittorrent with VPN**, **Remmina**, **SABnzbd**, **SearXNG**, **ShellInABox**, **Socket Proxy**, **SSHwifty**, **Tika**, **TinyAuth**, **Transmission**, **Wallos**
+Adminer, Airsonic-Advanced, Authentik, Audiobookshelf, Authelia, Baikal, Bazarr, Beets, Bookstack, cAdvisor, Calibre, Calibre-Web, Change Detection, Chromium, Cleanuparr, Cloud Commander, Cloudflare Tunnel, CrowdSec, CrowdSec Firewall Bouncer, CyberChef, Dashy, DDNS Updater, DeUnhealth, DigiKam, Dockwatch, Docker Garbage Collection, DokuWiki, Double Commander, Dozzle, Dozzle Agent, DweebUI, Emby, ESPHome, FileZilla, Flame, Flaresolverr, Flowise, FreshRSS, Funkwhale, GameVault, Glances, Gluetun, Gonic, Gotenberg, GPTWOL, Grafana, Grocy, Guacamole, Heimdall, Homarr, Home Assistant Core, Homebridge, Homer, Homepage, Huntarr, Immich, InfluxDB, IT-Tools, Jackett, Jellyfin, Jellyseerr, Kasm, Kavita, Kometa, Komga, Lidarr, Lollypop, Maintainerr, MariaDB, Mosquitto, MQTTX Web, Mylar3, n8n, Navidrome, Netdata, Nextcloud, Node Exporter, Node-RED, Notifiarr, OAuth, Ollama, Ombi, OpenHands, Open-WebUI, Organizr, Overseerr, Paperless-AI, Paperless-NGX, PdfDing, PgAdmin, phpMyAdmin, Pi-hole, Piwigo, Plex, Portainer, PostgreSQL, Privatebin, Prometheus, Prowlarr, qBittorrent, qBittorrent with VPN, Qdrant, Radarr, Redis, Redis Commander, Remmina, Resilio Sync, SABnzbd, Scrutiny, SearXNG, ShellInABox, Smokeping, Socket Proxy, Sonarr, Speedtest-Tracker, SSHwifty, Stirling PDF, Tailscale, Tautulli, The Lounge, Theme Park, Tika, TinyAuth, Traefik, Traefik Access Logs, Traefik Bouncer, Traefik Certs Dumper, Traefik Error Logs, Transmission, Trilium Next, Uptime-Kuma, Vaultwarden, Vikunja, Visual Studio Code Server, Wallos, Watchtower, Weaviate, WG-Easy, What's Up Docker (WUD), WikiDocs, Wireguard, and ZeroTier
 
 ---
 
