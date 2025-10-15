@@ -25,16 +25,16 @@ My setup is based on [Deployrr](https://www.simplehomelab.com/deployrr/) and [Ul
 I believe in **simple, energy-efficient homelab** design that maximizes performance while minimizing complexity.
 
 ### 🏠 Networking Architecture
-- **OPNsense** firewall running on Proxmox VM
+- **OPNsense** home firewall running on Proxmox VM (DMZed on ISP router)
 - **Tailscale** mesh networking connecting all hosts
 
 ### 📊 Hardware Specifications
 
 | Component | Specifications | Purpose |
 |-----------|---------------|---------|
-| **TopTon V700 Mini PC** | Intel i7-13800H, 64GB RAM, 2×2TB NVMe ZFS RAID1, 4TB SATA SSD | Primary Proxmox host |
-| **Synology DS918+** | DX517 Expansion, 8GB RAM, 4×18TB SHR2 (×2 volumes) | Storage & legacy apps |
-| **Oracle Ampere A1** | 4 vCPU ARM64, 24GB RAM, 200GB storage | Web server & ARM workloads |
+| **TopTon V700 Mini PC** | Intel i7-13800H, 64GB RAM, 2×2TB NVMe ZFS RAID1, 4TB SATA SSD | Proxmox host that runs my Home Server, Media/Database Server, Home Assistant, Proxmox Backup Server, etc. |
+| **Synology DS918+** | DX517 Expansion, 8GB RAM, 4×18TB SHR2 (×2 volumes) | Primary use is storage. But I tinker with Docker on it. |
+| **Oracle Ampere A1** | 4 vCPU ARM64, 24GB RAM, 200GB storage | Web server and automations |
 
 ---
 
@@ -90,7 +90,7 @@ Legacy configurations in `archives` folder - not actively maintained but useful 
 #### ⚙️ Infrastructure Setup
 4. [Install Proxmox on Mini PC with ZFS RAID1 Mirror + 3 Tweaks](https://www.simplehomelab.com/udms-04-install-proxmox-on-mini-pc/) [📹](https://youtu.be/2nIPY7D-UA0)
 5. [Installing and Prepping Ubuntu/Debian](https://www.simplehomelab.com/udms-05-installing-ubuntu-on-proxmox/) [📹](https://youtu.be/-ZSQdJ62r-Q)
-6. [Mounting Remote Folders using Rclone](https://youtu.be/D-XS0biLP14) [📹]
+6. [Mounting Remote Folders using Rclone](https://youtu.be/D-XS0biLP14) [📹](https://youtu.be/D-XS0biLP14)
 7. Mounting Remote Folders using SMB/CIFS *(Coming Soon)*
 8. Mounting Remote Folders using NFS *(Coming Soon)*
 9. Binding Mounting on Proxmox Unprivileged LXC *(Coming Soon)*
@@ -112,8 +112,8 @@ Legacy configurations in `archives` folder - not actively maintained but useful 
 
 #### 🔐 Authentication & Security
 19. [Authentication for Docker Apps - Authelia](https://www.simplehomelab.com/udms-19-authelia-docker-compose/) [📹](https://youtu.be/UIq8PLZHBtk)
-20. [Authentication for Docker Apps - Google OAuth 2](https://youtu.be/SCKALXprTQE) [📹]
-21. [Authentication for Docker Apps - Authentik](https://youtu.be/GoUmJAe1MKc) [📹]
+20. [Authentication for Docker Apps - Google OAuth 2](https://youtu.be/SCKALXprTQE) [📹](https://youtu.be/SCKALXprTQE)
+21. [Authentication for Docker Apps - Authentik](https://youtu.be/GoUmJAe1MKc) [📹](https://youtu.be/GoUmJAe1MKc)
 22. [CrowdSec Docker Compose – Bulletproof IPS for Homelabs](https://www.simplehomelab.com/udms-22-crowdsec-docker-compose/)
 23. [Setting up Crowdsec Cloudflare Bouncer](https://www.simplehomelab.com/udms-23-crowdsec-cloudflare-bouncer/)
 24. [Setting up Crowdsec Traefik Bouncer](https://www.simplehomelab.com/udms-24-crowdsec-traefik-bouncer/)
