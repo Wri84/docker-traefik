@@ -33,7 +33,7 @@ I believe in **simple, energy-efficient homelab** design that maximizes performa
 | Component | Specifications | Purpose |
 |-----------|---------------|---------|
 | **TopTon V700 Mini PC** | Intel i7-13800H, 64GB RAM, 2×2TB NVMe ZFS RAID1, 4TB SATA SSD | Proxmox host that runs my Home Server, Media/Database Server, Home Assistant, Proxmox Backup Server, etc. |
-| **Synology DS918+** | DX517 Expansion, 8GB RAM, 4×18TB SHR2 (×2 volumes) | Primary use is storage. But I tinker with Docker on it. |
+| **Synology DS918+** | DX517 Expansion Unit, 8GB RAM, 4×18TB SHR2 (×2 volumes) | Primary use is storage. But I tinker with Docker on it. |
 | **Oracle Ampere A1** | 4 vCPU ARM64, 24GB RAM, 200GB storage | Web server and automations |
 
 ---
