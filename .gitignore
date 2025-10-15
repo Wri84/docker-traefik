@@ -53,16 +53,15 @@ scripts/ws-arm/*
 compose/*
 !compose/**
 
+!commits
+!commits/**
+
 !appdata
 appdata/*
 
 !appdata/authelia
 appdata/authelia/*
 !appdata/authelia/*.example
-
-!appdata/nginx/**
-appdata/nginx/**/*
-!appdata/nginx/**/*.example
 
 !appdata/picard
 appdata/picard/*
