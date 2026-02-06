@@ -1,19 +1,6 @@
 version: "3.9"
 
-########################### ANAND'S ENVIRONMENT
-
-# Here are my 5 Docker Hosts:
-# - Home Server (hs) - Proxmox LXC with Ubuntu Server 22.04
-# - Media / Database Server (mds) - Proxmox LXC with Ubuntu Server 22.04
-# - Web Server (ws) - Digital Ocean VPS with Ubuntu Server 22.04
-# - Synology (ds918) - Synology DS918+
-# - DNS / AdBlock Server (dns) - Raspberry Pi 4B with Raspberry Pi OS
-
-########################### THIS COMPOSE FILE
-# - Synology (ds918) - Synology DS918+
-# - Prefix/suffix "ds918" refers to the above host
-# - Docker version 20.10.23, build 876964a
-# - Docker Compose version v2.23.3
+# NOTE (OCTOBER 15, 2025): At this time, my Synology setup has not been updated to UDMS 2025/Deployrr standards. It still follows my old way of doing things. 
 
 ########################### NETWORKS
 # You may customize the network subnets (192.168.x.0/24) below as you please.

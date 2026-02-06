@@ -1,0 +1,2 @@
+Connected to Traefik Pilot
+Added healthchecks, ping, and autoheal

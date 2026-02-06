@@ -3,24 +3,26 @@ services:
   jellyfin:
     image: jellyfin/jellyfin:latest
     container_name: jellyfin
-    networks:
-      - default
     security_opt:
       - no-new-privileges:true
-    restart: "no"
+    restart: unless-stopped
     profiles: ["media", "all"]
+    networks:
+      - default
     user: $PUID:$PGID
     devices:
       - /dev/dri:/dev/dri # for harware transcoding
     ports:
-      - "8096:8096"
+      - "$JELLYFIN_PORT:8096"
       # - "8920:8920" # Emby also uses same port if running both
     environment:
       UMASK_SET: 022
       TZ: $TZ
     volumes:
       - $DOCKERDIR/appdata/jellyfin:/config
-      - $DATADIR/data/media:/data/media1
-      - $DATADIR/data2/media:/data/media2
-      - $EXTDIR/ssd/downloads:/data/downloads
+      - $DOWNLOADSDIR:/data/downloads
+      - $MEDIADIR1:/data/media1
+      - $MEDIADIR2:/data/media2
+      # - $MEDIADIR3:/data/media3
       - /dev/shm:/data/transcode # Offload transcoding to RAM if you have enough RAM
+    # DOCKER-LABELS-PLACEHOLDER

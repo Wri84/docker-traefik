@@ -3,21 +3,23 @@ services:
   airsonic-advanced:
     image: lscr.io/linuxserver/airsonic-advanced
     container_name: airsonic-advanced
-    networks:
-      - default
     security_opt:
       - no-new-privileges:true
-    restart: "no"
+    restart: unless-stopped
     profiles: ["media", "all"]
+    networks:
+      - default
     volumes:
-      - $DOCKERDIR/appdata/airsonic/podcasts:/data/podcasts
-      - $DOCKERDIR/appdata/airsonic/playlists:/data/playlists
-      - $DOCKERDIR/appdata/airsonic/config:/config
-      - $DATADIR/data/media/music:/data/music
+      - $DOCKERDIR/appdata/airsonic-advanced/podcasts:/data/podcasts
+      - $DOCKERDIR/appdata/airsonic-advanced/playlists:/data/playlists
+      - $DOCKERDIR/appdata/airsonic-advanced/config:/config
+      - $MEDIADIR1/music:/data/music
+      # - $MEDIADIR3:/data/media3
     ports:
-      - "4040:4040"
+      - "$AIRSONICADVANCED_PORT:4040"
     environment:
       TZ: $TZ
       PUID: $PUID
       PGID: $PGID
       JAVA_OPTS: '-Dserver.forward-headers-strategy=native' # optional - if you use a reverse-proxy
+    # DOCKER-LABELS-PLACEHOLDER

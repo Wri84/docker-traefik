@@ -1,17 +1,16 @@
 services:
-  # Tautulli - Plex statistics and monitoring
-  # Set HTTP Root in Tautulli settings if using PathPrefix
+  # Tautulli - Plex Statistics and Monitoring
   tautulli:
     image: lscr.io/linuxserver/tautulli:latest
     container_name: tautulli
     security_opt:
       - no-new-privileges:true
-    restart: "no"
+    restart: unless-stopped
     profiles: ["media", "all"]
     networks:
       - default
     ports:
-      - "8181:8181"
+      - "$TAUTULLI_PORT:8181"
     volumes:
       - $DOCKERDIR/appdata/tautulli/config:/config
       - $DOCKERDIR/appdata/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro # For tautulli Plex log viewer
@@ -19,3 +18,4 @@ services:
       TZ: $TZ
       PUID: $PUID
       PGID: $PGID
+    # DOCKER-LABELS-PLACEHOLDER

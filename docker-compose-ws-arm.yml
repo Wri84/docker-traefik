@@ -1,0 +1,83 @@
+########################### NETWORKS
+# You may customize the network subnets (192.168.x.0/24) below as you please.
+networks:
+  default:
+    driver: bridge
+  socket_proxy:
+    name: socket_proxy
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.91.0/24
+  t3_proxy:
+    name: t3_proxy
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.90.0/24
+  cf_tunnel:
+    name: cf_tunnel
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.92.0/24
+  # NETWORKS-PLACEHOLDER-DO-NOT-DELETE
+  
+########################### SECRETS
+secrets:
+  basic_auth_credentials:
+    file: $DOCKERDIR/secrets/basic_auth_credentials
+  cf_dns_api_token:
+    file: $DOCKERDIR/secrets/cf_dns_api_token
+  oauth_secrets:
+    file: $DOCKERDIR/secrets/oauth_secrets
+  postgres_default_password:
+    file: $DOCKERDIR/secrets/postgres_default_password
+  mariadb_root_password:
+    file: $DOCKERDIR/secrets/mariadb_root_password
+  # SECRETS-PLACEHOLDER-DO-NOT-DELETE
+          
+include:
+  ########################### SERVICES
+  # HOSTNAME defined in .env file
+
+  # - compose/$HOSTNAME/custom.yml
+  - compose/$HOSTNAME/socket-proxy.yml
+  - compose/$HOSTNAME/deployrr-dashboard.yml
+  - compose/$HOSTNAME/traefik.yml
+  - compose/$HOSTNAME/oauth.yml
+  - compose/$HOSTNAME/vscode.yml
+  - compose/$HOSTNAME/dozzle.yml
+  - compose/$HOSTNAME/grafana.yml
+  - compose/$HOSTNAME/phpmyadmin.yml
+  - compose/$HOSTNAME/redis.yml
+  - compose/$HOSTNAME/traefik-access-log.yml
+  - compose/$HOSTNAME/traefik-error-log.yml
+  # - compose/$HOSTNAME/sshwifty.yml
+  - compose/$HOSTNAME/remmina.yml
+  # - compose/$HOSTNAME/influxdb.yml
+  # - compose/$HOSTNAME/prometheus.yml
+  - compose/$HOSTNAME/adminer.yml
+  - compose/$HOSTNAME/crowdsec.yml
+  # - compose/$HOSTNAME/php7.yml
+  - compose/$HOSTNAME/php8.yml
+  - compose/$HOSTNAME/cloudflare-bouncer.yml
+  - compose/$HOSTNAME/glances.yml
+  - compose/$HOSTNAME/mariadb.yml
+  - compose/$HOSTNAME/nginx.yml
+  - compose/$HOSTNAME/portchecker-api.yml
+  - compose/$HOSTNAME/portchecker.yml
+  - compose/$HOSTNAME/crawl4ai.yml
+  - compose/$HOSTNAME/postgresql.yml
+  # - compose/$HOSTNAME/pgadmin.yml
+  - compose/$HOSTNAME/postgresql-vector.yml
+  - compose/$HOSTNAME/n8n.yml
+  # - compose/$HOSTNAME/ollama.yml 
+  - compose/$HOSTNAME/qdrant.yml
+  # - compose/$HOSTNAME/openhands.yml
+  - compose/$HOSTNAME/wikidocs.yml
+  # - compose/$HOSTNAME/open-webui.yml
+  - compose/$HOSTNAME/chromium.yml
+  - compose/$HOSTNAME/flowise.yml
+  - compose/$HOSTNAME/dockflare.yml
+  # SERVICE-PLACEHOLDER-DO-NOT-DELETE
